@@ -23,10 +23,28 @@
     height: 100%;
 }
 
-.caurosel-img img{
+.caurosel-img .item{
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: end;
+    position: relative;
+}
+
+.caurosel-img .item img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.caurosel-img .item .text{
+    background-color: rgba(0, 0, 0, .5);
+    border-top-left-radius: 20px;
+    padding: 15px;
+    width: 80%;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
 }
 
 .slices{

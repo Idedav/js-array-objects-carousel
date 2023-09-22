@@ -30,11 +30,22 @@ let counterImg = 0
 const btnTop = document.querySelector('.btn-top')
 const btnBot = document.querySelector('.btn-bottom')
 // CICLE
-for (let i = 0; i < carouselWrapper.length; i++){
-    const img = carouselWrapper[i]
-    carouselImages.innerHTML += `<img src=${img} class='item hide'>`
-    slicesImages.innerHTML += `<img src=${img} class='slice'>`
-}
+carouselWrapper.forEach(key => {
+    const image = key.image;
+    const title = key.title;
+    const text = key.text;
+    carouselImages.innerHTML += `
+        <div class="item hide">
+            <img src=${image}>
+            <div class="text"> 
+                <h2>${title}</h2>
+                <p>${text}</p>
+            </div>
+        </div>
+    `
+    slicesImages.innerHTML += `<img src=${image} class='slice'>`
+})
+
     const slicesWrapper = document.getElementsByClassName('slice')
     slicesWrapper[0].classList.add('active')
     const itemsWrapper = document.getElementsByClassName('item');
