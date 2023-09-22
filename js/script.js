@@ -45,7 +45,6 @@ carouselWrapper.forEach(key => {
     `
     slicesImages.innerHTML += `<img src=${image} class='slice'>`
 })
-    const sliceImage = document.querySelector('.slice');
     const slicesWrapper = document.getElementsByClassName('slice');
     slicesWrapper[0].classList.add('active');
     const itemsWrapper = document.getElementsByClassName('item');
@@ -85,47 +84,51 @@ carouselWrapper.forEach(key => {
 
 
     // ---------SET INTERVAL-------------
-    // let clockOk = true;
-    // let clockReverse;
-    // let clock = setInterval(function(){
-    //     next();
-    //     if(counterImg != itemsWrapper.length - 1){
-    //         counterImg++
-    //     }else{
-    //         counterImg = 0
-    //     }
-    //     prev();
-    // },2000);
+    let clockOk = true;
+    let clockReverse;
+    let clock = setInterval(function(){
+        next();
+        if(counterImg != itemsWrapper.length - 1){
+            counterImg++
+        }else{
+            counterImg = 0
+        }
+        prev();
+    },2000);
 
 
-    // btnInterval.addEventListener('click', function(){
-    //     if(clockOk == true){
-    //         clearInterval(clock);
-    //         clockReverse = setInterval(function(){
-    //             next();
-    //             if(counterImg != 0){
-    //                 counterImg--
-    //             }else{
-    //                 counterImg = itemsWrapper.length - 1
-    //             }
-    //             prev();
-    //         },2000)
-    //         clockOk = false
-    //     }else if(clockOk == false){
-    //         clearInterval(clockReverse);
-    //         clock = setInterval(function(){
-    //             next();
-    //             if(counterImg != itemsWrapper.length - 1){
-    //                 counterImg++
-    //             }else{
-    //                 counterImg = 0
-    //             }
-    //             prev();
-    //         },2000);
-    //         clockOk = true;
-    //     }
-    // })
-
-    sliceImage.addEventListener('click', function(){
-        console.log('mi hai cliccato');
+    btnInterval.addEventListener('click', function(){
+        if(clockOk == true){
+            clearInterval(clock);
+            clockReverse = setInterval(function(){
+                next();
+                if(counterImg != 0){
+                    counterImg--
+                }else{
+                    counterImg = itemsWrapper.length - 1
+                }
+                prev();
+            },2000)
+            clockOk = false
+        }else if(clockOk == false){
+            clearInterval(clockReverse);
+            clock = setInterval(function(){
+                next();
+                if(counterImg != itemsWrapper.length - 1){
+                    counterImg++
+                }else{
+                    counterImg = 0
+                }
+                prev();
+            },2000);
+            clockOk = true;
+        }
     })
+
+    for(image of slicesWrapper){
+        image.addEventListener('click', function(){
+            slicesWrapper[counterImg].classList.remove('active');
+            this.classList.add('active');
+        })
+    }
+    
