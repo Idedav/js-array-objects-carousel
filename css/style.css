@@ -1,0 +1,71 @@
+.dc-container{
+    width: 100%;
+    height: 100vh;
+    background-color: slateblue;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.hide{
+    display: none;
+}
+
+.caurosel{
+    width: 1000px;
+    height: 500px;
+    background-color: black;
+    display: flex;
+    position: relative;
+}
+.caurosel-img{
+    width: 80%;
+    height: 100%;
+}
+
+.caurosel-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slices{
+    width: 20%;
+    height: 100%;
+}
+
+.slices img{
+    width: 100%;
+    height: calc(100% / 5);
+    object-fit: cover;
+    filter: opacity(50%);
+}
+
+img.active{
+    border: 5px solid white;
+    filter: opacity(100%);
+}
+
+button{
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, .7);
+    right: 80px;
+    z-index: 1;
+}
+
+button:hover{
+    background-color: white;
+}
+
+
+.btn-top{
+    top: 15px;
+}
+
+.btn-bottom{
+    bottom: 15px;
+}
